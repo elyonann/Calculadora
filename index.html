@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Câmeras da Empresa</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Mapa de Câmeras da Empresa</h1>
+    <p class="intro">
+      Carregue a planta da empresa, adicione as câmeras nos locais corretos e clique em cada marcador para abrir a foto com zoom.
+    </p>
+
+    <section class="controls">
+      <label>
+        1) Planta da empresa
+        <input type="file" id="floorPlanInput" accept="image/*" />
+      </label>
+
+      <label>
+        2) Nome da câmera
+        <input type="text" id="cameraName" placeholder="Ex.: Entrada principal" />
+      </label>
+
+      <label>
+        3) Foto da câmera
+        <input type="file" id="cameraImageInput" accept="image/*" />
+      </label>
+
+      <button id="addCameraBtn">Adicionar câmera (clique na planta)</button>
+      <button id="clearBtn" class="secondary">Limpar câmeras</button>
+    </section>
+
+    <section class="map-wrapper">
+      <div id="mapContainer" class="map-container" aria-label="Mapa de câmeras">
+        <p class="placeholder">Carregue uma planta para começar.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="cameraDialog">
+    <article class="dialog-content">
+      <header>
+        <h2 id="dialogTitle">Câmera</h2>
+        <button id="closeDialog" class="icon">✕</button>
+      </header>
+      <div class="zoom-controls">
+        <button id="zoomOut">-</button>
+        <span id="zoomLevel">100%</span>
+        <button id="zoomIn">+</button>
+        <button id="resetZoom">Resetar</button>
+      </div>
+      <div class="image-viewport" id="imageViewport">
+        <img id="dialogImage" alt="Imagem da câmera" draggable="false" />
+      </div>
+    </article>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
